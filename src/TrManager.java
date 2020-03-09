@@ -29,7 +29,7 @@ public class TrManager implements TruckManager{
 	public int getTotalTruckCapacity() {
 
 		return trucks.stream()
-				     .mapToInt(Truck::getCapacity)
+			     .mapToInt(Truck::getCapacity)
 		             .sum();
 	}
 
@@ -37,9 +37,9 @@ public class TrManager implements TruckManager{
 	public Truck getTruckById(String id) {
 		
 		return trucks.stream()
-					 .filter(p -> p.getId().equals(id))
-					 .findAny()
-					 .orElse(null);
+			     .filter(p -> p.getId().equals(id))
+			     .findAny()
+			     .orElse(null);
 	}
 
 	@Override
@@ -92,25 +92,25 @@ public class TrManager implements TruckManager{
 
 		
 		return getPackets(truckId).stream()
-								  .mapToDouble(Packet::getVolume)
-								  .average()
-								  .orElse(0.0);	 
+					  .mapToDouble(Packet::getVolume)
+					  .average()
+					  .orElse(0.0);	 
 	}
 	
 	public double getMaxPackageVolume() {
 		
 		return packets.stream()
-				      .mapToDouble(Packet::getVolume)
-				      .max()
-				      .getAsDouble();
+			      .mapToDouble(Packet::getVolume)
+			      .max()
+			      .getAsDouble();
 	}
 	
 	
 	public double getMinPackageVolume() {
 
 		return packets.stream()
-				      .mapToDouble(Packet::getVolume)
-				      .min()
-				      .getAsDouble();
+			      .mapToDouble(Packet::getVolume)
+			      .min()
+			      .getAsDouble();
 	}
 }
